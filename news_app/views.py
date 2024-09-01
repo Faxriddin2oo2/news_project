@@ -1,7 +1,7 @@
-from lib2to3.fixes.fix_input import context
-
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import News, Category
+from .forms import ContactForm
 
 def news_list(request):
     news_list = News.published.all() # 1 chi usul
@@ -32,9 +32,15 @@ def homePageView(request):
 
 
 def contactPageView(request):
+    print(request.POST)
+    form = ContactForm(request.POST or None)
+    if request.method == "POST" and  form.is_valid():
+        form.save()
+        return HttpResponse("<h2> Biz bilan bo'glanganingiz uchun tashakkur!")
     context = {
-
+        "form": form
     }
+
     return render(request, 'news/contact.html', context)
 
 def Page404View(request):
