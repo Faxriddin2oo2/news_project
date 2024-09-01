@@ -36,3 +36,16 @@ def contactPageView(request):
 
     }
     return render(request, 'news/contact.html', context)
+
+def Page404View(request):
+    context = {
+
+    }
+    return render(request, 'news/404.html', context)
+
+def aboutPageView(request):
+    context = {
+
+    }
+
+    return render(request, 'news/about.html', context)

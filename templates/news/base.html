@@ -30,7 +30,7 @@
           <div class="header_top_left">
             <ul class="top_nav">
               <li><a href="{% url 'home_page' %}">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="{% url 'about_page'%}">About</a></li>
               <li><a href="{% url 'contact_page' %}">Contact</a></li>
             </ul>
           </div>
@@ -68,7 +68,7 @@
           <li><a href="#">Laptops</a></li>
           <li><a href="#">Tablets</a></li>
           <li><a href="{% url 'contact_page' %}">Contact Us</a></li>
-          <li><a href="pages/404.html">404 Page</a></li>
+          <li><a href="{% url '404_page'%}">404 Page</a></li>
         </ul>
       </div>
     </nav>
