@@ -1,5 +1,9 @@
+from lib2to3.fixes.fix_input import context
+
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView
+
 from .models import News, Category
 from .forms import ContactForm
 
@@ -31,17 +35,37 @@ def homePageView(request):
 
 
 
-def contactPageView(request):
-    print(request.POST)
-    form = ContactForm(request.POST or None)
-    if request.method == "POST" and  form.is_valid():
-        form.save()
-        return HttpResponse("<h2> Biz bilan bo'glanganingiz uchun tashakkur!")
-    context = {
-        "form": form
-    }
+# def contactPageView(request):
+#     print(request.POST)
+#     form = ContactForm(request.POST or None)
+#     if request.method == "POST" and  form.is_valid():
+#         form.save()
+#         return HttpResponse("<h2> Biz bilan bo'glanganingiz uchun tashakkur!</h2>")
+#     context = {
+#         "form": form
+#     }
+#
+#     return render(request, 'news/contact.html', context)
 
-    return render(request, 'news/contact.html', context)
+class ContactPageView(TemplateView):
+    template_name = 'news/contact.html'
+
+    def get(self, request, *args, **kwargs):
+        form = ContactForm()
+        context = {
+            'form' : form
+        }
+        return render(request, 'news/contact.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST)
+        if request.method == 'POST' and form.is_valid():
+            form.save()
+            return HttpResponse("<h2> Biz bilan bo'glanganingiz uchun tashakkur!</h2>")
+        context = {
+            "form" : form
+        }
+        return render(request, 'news/contact.html', context)
 
 def Page404View(request):
     context = {
