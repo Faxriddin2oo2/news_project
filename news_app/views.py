@@ -28,3 +28,11 @@ def homePageView(request):
     }
 
     return render(request, 'news/home.html', context)
+
+
+
+def contactPageView(request):
+    context = {
+
+    }
+    return render(request, 'news/contact.html', context)
