@@ -1,8 +1,6 @@
-from lib2to3.fixes.fix_input import context
-
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from .models import News, Category
 from .forms import ContactForm
@@ -23,21 +21,34 @@ def news_detail(request, id):
 
     return render(request, 'news/news_detailed.html', context)
 
-def homePageView(request):
-    categories = Category.objects.all()
-    news_list = News.published.all().order_by('-publish_time')[:10]
-    local_one = News.published.filter(category__name="Mahalliy").order_by("-publish_time")[:1]
-    local_news = News.published.all().filter(category__name="Mahalliy").order_by("-publish_time")[1:6]
+# def homePageView(request):
+#     categories = Category.objects.all()
+#     news_list = News.published.all().order_by('-publish_time')[:15]
+#     local_one = News.published.filter(category__name="Mahalliy").order_by("-publish_time")[:1]
+#     local_news = News.published.all().filter(category__name="Mahalliy").order_by("-publish_time")[1:6]
+#
+#     context = {
+#         'news_list' : news_list,
+#         "categories" : categories,
+#         "local_one" : local_one,
+#         "local_news" : local_news,
+#     }
+#
+#     return render(request, 'news/home.html', context)
 
-    context = {
-        'news_list' : news_list,
-        "categories" : categories,
-        "local_one" : local_one,
-        "local_news" : local_news,
-    }
 
-    return render(request, 'news/home.html', context)
+class HomePageView(ListView):
+    model = News
+    template_name = 'news/home.html'
+    context_object_name = 'news'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = self.model.objects.all()
+        context['news_list'] = News.published.all().order_by('-publish_time')[:15]
+        context['local_one'] = News.published.filter(category__name="Mahalliy").order_by("-publish_time")[:1]
+        context['local_news'] = News.published.all().filter(category__name="Mahalliy").order_by("-publish_time")[1:6]
+        return context
 
 
 # def contactPageView(request):
