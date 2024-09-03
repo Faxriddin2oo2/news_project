@@ -44,7 +44,7 @@ class HomePageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = self.model.objects.all()
+        context['categories'] = Category.objects.all()
         context['news_list'] = News.published.all().order_by('-publish_time')[:15]
         context['local_one'] = News.published.filter(category__name="Mahalliy").order_by("-publish_time")[:1]
         context['local_news'] = News.published.all().filter(category__name="Mahalliy").order_by("-publish_time")[1:6]
