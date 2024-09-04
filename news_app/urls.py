@@ -2,7 +2,8 @@ from idlelib.help_about import AboutDialog
 from tkinter.font import names
 
 from django.urls import path
-from .views import news_list, news_detail, Page404View, aboutPageView, ContactPageView, HomePageView #contactPageView
+from .views import news_list, news_detail, Page404View, aboutPageView, ContactPageView, HomePageView, \
+    LocalNewsView, ForeignNewsView, TechnologyNewsView, SportNewsView
 
 urlpatterns = [
     path('', HomePageView.as_view(), name = 'home_page'),
@@ -10,5 +11,10 @@ urlpatterns = [
     path('news/<slug:news>/', news_detail, name = "news_detail_page"),
     path('contact-us/', ContactPageView.as_view(), name = 'contact_page'),
     path('404/', Page404View, name = '404_page'),
-    path('about/', aboutPageView, name = 'about_page' )
+    path('about/', aboutPageView, name = 'about_page' ),
+    path('local/', LocalNewsView.as_view(), name = "local_news_page"),
+    path('foreign', ForeignNewsView.as_view(), name = "foreign_news_page"),
+    path('technology/', TechnologyNewsView.as_view(), name = "technology_news_page"),
+    path('sport/', SportNewsView.as_view(), name = 'sport_news_page'),
 ]
+

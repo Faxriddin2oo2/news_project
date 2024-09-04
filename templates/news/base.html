@@ -55,9 +55,10 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav main_nav">
           <li class="active"><a href="{% url 'home_page' %}"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
-          {% for kategory in categories %}
-          <li><a href="{% url 'news_detail_page' kategory.pk%}">{{kategory.name}}</a></li>
-          {%endfor%}
+          <li><a href="{% url 'local_news_page'%}">Mahalliy</a></li>
+          <li><a href="{% url 'foreign_news_page'%}">Xorij</a></li>
+          <li><a href="{% url 'technology_news_page'%}">Texnologiya</a></li>
+          <li><a href="{% url 'sport_news_page'%}">Sport</a></li>
           <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
         </ul>
       </div>
