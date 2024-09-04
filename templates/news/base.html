@@ -55,20 +55,10 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav main_nav">
           <li class="active"><a href="{% url 'home_page' %}"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
-          <li><a href="#">Technology</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Nokia</a></li>
-              <li><a href="#">Walton Mobile</a></li>
-              <li><a href="#">Sympony</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="{% url 'contact_page' %}">Contact Us</a></li>
-          <li><a href="{% url '404_page'%}">404 Page</a></li>
+          {% for kategory in categories %}
+          <li><a href="{% url 'news_detail_page' kategory.pk%}">{{kategory.name}}</a></li>
+          {%endfor%}
+          <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
         </ul>
       </div>
     </nav>
@@ -113,7 +103,7 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInDown">
-            <h2>Kategoriyalar</h2>
+            <h2>Teglar</h2>
             <ul class="tag_nav">
               {% for kategory in categories %}
               <li><a href="#">{{kategory.name}}</a></li>
@@ -123,8 +113,9 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInRightBig">
-            <h2>Contact</h2>
-            <p>Materiallarimizdan to‘liq yoki qisman foydalanilganda «Foydalanish shartlari»ga amal qilinishi shart. Barcha huquqlar O‘zbekiston Respublikasining ommaviy axborot vositalari to‘g‘risidagi hamda mualliflik va turdosh huquqlar to‘g‘risidagi qonun hujjatlarida belgilangan tartibda himoyalangan.</p>
+            <h2>Biz bilan aloqa</h2>
+            <p>Email: teshaboyevfaxriddin1@gmail.com</p>
+            <p>Telefon raqam: +998 (90) 346 58 26</p>
             <address>
             Manzil: Toshkent sh. Yunusobod tumani, 2-mavze, 6 uy
             </address>
