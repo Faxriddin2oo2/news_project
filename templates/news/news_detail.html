@@ -5,9 +5,10 @@
 {% block title %} {{news.title }} {% endblock title %}
 
 {% block content %}
-
-    <h2>{{ news.title }}</h2>
-    <h5>{{news.publish_time}}</h5>
-    <img src="{{ news.image.url }}">
-    <p>{{ news.body }}</p>
+    <div class="container" style="width:100%">
+    <h2 style="width:100%">{{ news.title }}</h2>
+    <h5 class="datetime">{{news.publish_time}}</h5>
+    <img src="{{ news.image.url }}" style="width:50%">
+    <p style="width:100%">{{ news.body }}</p>
+    </div>
 {% endblock %}

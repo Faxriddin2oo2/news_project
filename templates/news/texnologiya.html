@@ -8,10 +8,10 @@
     {% for news in texnologik_yangiliklar %}
         <div class="container">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-6" >
                     <a href="{{ news.get_absolute_url }}">
-                        <img src="{{ news.image.url}}" alt="{{ news.title }}" style="width:50%">
-                        <h2>{{news.title}}</h2>
+                        <img src="{{ news.image.url}}" alt="{{ news.title }}" style="width:150%">
+                        <h2 style="width:150%; margin-bottom: 40px">{{news.title}}</h2>
                     </a>
                 </div>
             </div>
