@@ -2,6 +2,10 @@ from django.urls import reverse
 from django.utils import timezone
 from django.db import models
 
+
+
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=News.Status.Published)
@@ -54,3 +58,5 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+
