@@ -48,9 +48,9 @@
                 {% for mahalliy in mahalliy_xabarlar %}
                     {% if forloop.first %}
                 <li>
-                  <figure class="bsbig_fig"> <a href="{{mahalliy.get_absolute_url}}" class="featured_img"> <img alt="" src="{{mahalliy.image.url}}"> <span class="overlay"></span> </a>
+                  <figure class="bsbig_fig"> <a href="{{mahalliy.get_absolute_url}}" class="featured_img"> <img alt="" src="{{mahalliy.image.url}}"> <span class="overlay"></span>
                     <figcaption> <a href="{{mahalliy.get_absolute_url}}">{{mahalliy.title | truncatewords:5}}</a> </figcaption>
-                    <p>{{mahalliy.title | truncatewords:10}}</p>
+                    <p>{{mahalliy.title | truncatewords:8}}</p></a>
                   </figure>
                 </li>
                     {% endif %}

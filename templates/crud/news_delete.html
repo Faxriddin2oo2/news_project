@@ -6,7 +6,7 @@
 
 {% block content %}
   <h2 class="text-center">Joriy yangiliklni o'chirish</h2>
-  <form method = "post">{% csrf_token %}
+  <form method = "post" >{% csrf_token %}
     <p>{{news.title | truncatewords:3}}... sarlavhali yangiliklini o'chirmoqchimisiz? </p>
     <button type = "submit" class="btn btn-danger ml-2">Tasdiqlayman</button>
   </form>
