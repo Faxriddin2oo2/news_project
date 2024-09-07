@@ -11,4 +11,11 @@
     <img src="{{ news.image.url }}" style="width:50%">
     <p style="width:100%">{{ news.body }}</p>
     </div>
+
+<div class="card-footer text-center">
+
+    <a href="{% url 'news_update' news.slug %}">Tahrirlash</a> |
+    <a href="{% url 'news_delete' news.slug %}">O'chirish</a>
+
+</div>
 {% endblock %}
