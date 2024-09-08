@@ -13,17 +13,18 @@ def user_login(request):
                                 username=data['username'],
                                 password=data['password'])
             if user is not None:
-                if user.is_active():
+                if user.is_active:
                     login(request, user)
-                    return HttpResponse('Muvaffaqiyatli login amalga oshirildi')
+                    return HttpResponse('Muvaffaqiyatli login amalga oshirildi!')
                 else:
                     return HttpResponse('Sizning profilingiz faol holatda emas')
 
             else:
                 return HttpResponse('Login va parolda xatolik bor!')
-        else:
-            form = LoginForm()
-            context = {
-                'form':form
-            }
-        return render(request, 'account/login.html', context)
+    else:
+        form = LoginForm()
+        context = {
+            'form':form
+        }
+
+    return render(request,'registration/login.html', {"form":form})
