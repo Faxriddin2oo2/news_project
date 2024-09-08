@@ -1,3 +1,5 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
@@ -28,3 +30,12 @@ def user_login(request):
         }
 
     return render(request,'registration/login.html', {"form":form})
+
+
+def dashboard_view(request):
+    user = request.user
+    context = {
+        'user': user
+    }
+
+    return render(request, 'pages/user_profile.html', context)
