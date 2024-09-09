@@ -6,6 +6,7 @@
 
     <h2>Veb-saytga kirish - login</h2>
     <p>Iltimos, saytga kirish uchun quyidagi formani toldiring</p>
+    <h5>Agar parolingizni unutgan bo'lsangiz, uni <a href="{% url 'password_reset' %}">tiklang</a></h5>
 
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
