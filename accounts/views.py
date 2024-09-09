@@ -1,5 +1,6 @@
-from lib2to3.fixes.fix_input import context
-
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.views import View
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
@@ -30,6 +31,11 @@ def user_login(request):
         }
 
     return render(request,'registration/login.html', {"form":form})
+
+class CustomLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('/')
 
 
 def dashboard_view(request):
