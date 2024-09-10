@@ -4,7 +4,10 @@ from django.views import View
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 from .forms import LoginForm,UserRegistrationForm
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 
 def user_login(request):
@@ -47,8 +50,35 @@ def dashboard_view(request):
     return render(request, 'pages/user_profile.html', context)
 
 
-def user_register(request):
-    if request.method == "POST":
+# def user_register(request):
+#     if request.method == "POST":
+#         user_form = UserRegistrationForm(request.POST)
+#         if user_form.is_valid():
+#             new_user = user_form.save(commit=False)
+#             new_user.set_password(
+#                 user_form.cleaned_data["password"]
+#             )
+#             new_user.save()
+#             context = {
+#                 "new_user": new_user
+#             }
+#             return render(request, 'account/register_done.html', context)
+#     else:
+#         user_form = UserRegistrationForm()
+#         context = {
+#             "user_form" : user_form
+#         }
+#         return render(request, 'account/register.html', context)
+
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'account/register.html'
+
+
+class SignUpView(View):
+    def get(self, request):
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
@@ -60,7 +90,8 @@ def user_register(request):
                 "new_user": new_user
             }
             return render(request, 'account/register_done.html', context)
-    else:
+
+    def post(self, request):
         user_form = UserRegistrationForm()
         context = {
             "user_form" : user_form
