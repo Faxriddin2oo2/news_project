@@ -5,17 +5,33 @@
 
 {% block content %}
 
-    {% for news in texnologik_yangiliklar %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" >
-                    <a href="{{ news.get_absolute_url }}">
-                        <img src="{{ news.image.url}}" alt="{{ news.title }}" style="width:150%">
-                        <h2 style="width:150%; margin-bottom: 40px">{{news.title}}</h2>
-                    </a>
-                </div>
-            </div>
+<!--    {% for news in texnologik_yangiliklar %}-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-6" >-->
+<!--                    <a href="{{ news.get_absolute_url }}">-->
+<!--                        <img src="{{ news.image.url}}" alt="{{ news.title }}" style="width:150%">-->
+<!--                        <h2 style="width:150%; margin-bottom: 40px">{{news.title}}</h2>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+
+<div class="container">
+    <div class="row">
+        {% for news in texnologik_yangiliklar %}
+        <div class="col-xs-6">
+            <a href="{{ news.get_absolute_url }}">
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-responsive" style="margin-bottom: 20px;">
+                <h3 class="text-center font-weight-bold">{{ news.title }}</h3>
+            </a>
         </div>
-    {% endfor %}
+        {% if forloop.counter|divisibleby:2 %}
+        </div><div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}
