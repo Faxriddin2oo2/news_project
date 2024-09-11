@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 from django.conf.global_settings import MEDIA_URL, MEDIA_ROOT, STATICFILES_DIRS, STATIC_ROOT, STATICFILES_FINDERS, \
-    LOGIN_REDIRECT_URL, EMAIL_BACKEND
+    LOGIN_REDIRECT_URL, EMAIL_BACKEND, LOGIN_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -140,3 +140,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home_page'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = 'login'
