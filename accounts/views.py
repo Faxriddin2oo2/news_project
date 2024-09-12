@@ -1,16 +1,16 @@
-from django.contrib.auth import logout, user_login_failed
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
-from django.views import View
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-
-from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm
-from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views import View
+from django.views.generic import CreateView
+
+from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
 
 
@@ -55,7 +55,7 @@ def dashboard_view(request):
 
     return render(request, 'pages/user_profile.html', context)
 
-@login_required
+
 def user_register(request):
     if request.method == "POST":
         user_form = UserRegistrationForm(request.POST)

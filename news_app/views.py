@@ -1,4 +1,5 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
@@ -160,3 +161,14 @@ class NewsCreateView(OnlyLoggedSuperUser, CreateView):
     model = News
     template_name = 'crud/news_create.html'
     fields = ('title', 'slug', 'body', 'image', 'category', 'status')
+
+
+@login_required
+@user_passes_test(lambda u:u.is_superuser)
+def admin_page_view(request):
+    admin_users = User.objects.filter(is_superuser=True)
+
+    context = {
+        "admin_users" : admin_users
+    }
+    return render(request, 'pages/admin_page.html', context)
