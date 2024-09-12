@@ -12,44 +12,41 @@
     <p style="width:100%">{{ news.body }}</p>
     </div>
 
-    {% if request.user.is_authenticated and request.user.is_superuser%}
-<div class="card-footer text-center">
-    <a href="{% url 'news_update' news.slug %}">Tahrirlash</a> |
-    <a href="{% url 'news_delete' news.slug %}">O'chirish</a>
-</div>
-    {% endif %}<br>
-{% for comment in comments %}
 
-    <div class="comments" style="padding:10px">
+{% for comment in comments %}
+    <div class="comments" style="padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
         <p class="font-weight-bold">
             {{ comment.user }}
-            <span class="text-muted font-weight-normal">
+            <span class="text-muted font-weight-normal" style="font-size: 12px;">
                 {{ comment.created_time }}
             </span>
         </p>
-        {{comment.body | linebreaks}}
+        <p>{{ comment.body | linebreaks }}</p>
     </div>
 {% endfor %}
 
-    {% if user.is_authenticated%}
-    <div class="col-md-8 card mb-4 mt-3">
-        <div class="card-body">
-            <h3>Izoh qoldirish</h3>
-            <form method="POST" style="margin-top: 1.3em">{% csrf_token %}
-                {{ comment_form.as_p }}
-                <button type="submit" class="btn btn-primary btn-lg">
-                    Yuborish
-                </button>
-            </form>
-        </div>
-    </div>
-    {% else %}
+{% if user.is_authenticated %}
+<div class="col-md-8 card mb-4 mt-3" style="box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); border-radius: 5px;">
     <div class="card-body">
-        <p class="text-danger">Faqatgina ro'yhatdan o'tgan foydalanuvchilar izoh qoldirishi mumkin</p>
-        <p>Izoh qoldirish uchun
-            <a href="{% url 'user_register' %}" class="text-primary">ro'yhatdan o'ting </a>
-            yoki <a href="{% url 'login'%}" class="text-primary">Saytga kiring</a>
-        </p>
+        <h3>Izoh qoldirish</h3>
+        <form method="POST" style="margin-top: 1.3em;">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ comment_form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">
+                Yuborish
+            </button>
+        </form>
     </div>
-    {% endif %}
+</div>
+{% else %}
+<div class="card-body" style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <p class="text-danger">Faqatgina ro'yhatdan o'tgan foydalanuvchilar izoh qoldirishi mumkin</p>
+    <p>Izoh qoldirish uchun
+        <a href="{% url 'user_register' %}" class="text-primary">ro'yhatdan o'ting</a>
+        yoki <a href="{% url 'login'%}" class="text-primary">Saytga kiring</a>
+    </p>
+</div>
+{% endif %}
 {% endblock %}
