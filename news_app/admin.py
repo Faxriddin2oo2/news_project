@@ -36,4 +36,4 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
 
 # 1-usul
-admin.site.register(Comment, CommentAdmin)
+# admin.site.register(Comment, CommentAdmin)
