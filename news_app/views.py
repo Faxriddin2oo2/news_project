@@ -33,6 +33,7 @@ def news_detail(request, news):
             new_comment.user = request.user
             # Ma'lumotlar bazasiga saqlaymiz
             new_comment.save()
+            comment_form = CommentForm()
     else:
         comment_form = CommentForm()
 
