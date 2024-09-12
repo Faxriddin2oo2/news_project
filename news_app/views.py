@@ -1,11 +1,13 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
-from unicodedata import category
+from news_project.custom_permissions import OnlyLoggedSuperUser
 
-from .models import News, Category
 from .forms import ContactForm
+from .models import News, Category
+
 
 def news_list(request):
     news_list = News.published.all() # 1 chi usul
@@ -15,6 +17,7 @@ def news_list(request):
     }
     return render(request, "news/news_list.html", context)
 
+
 def news_detail(request, news):
     news = get_object_or_404(News, slug=news, status=News.Status.Published)
     context = {
@@ -23,20 +26,21 @@ def news_detail(request, news):
 
     return render(request, 'news/news_detail.html', context)
 
-# def homePageView(request):
-#     categories = Category.objects.all()
-#     news_list = News.published.all().order_by('-publish_time')[:15]
-#     local_one = News.published.filter(category__name="Mahalliy").order_by("-publish_time")[:1]
-#     local_news = News.published.all().filter(category__name="Mahalliy").order_by("-publish_time")[1:6]
-#
-#     context = {
-#         'news_list' : news_list,
-#         "categories" : categories,
-#         "local_one" : local_one,
-#         "local_news" : local_news,
-#     }
-#
-#     return render(request, 'news/home.html', context)
+@login_required
+def homePageView(request):
+    categories = Category.objects.all()
+    news_list = News.published.all().order_by('-publish_time')[:15]
+    local_one = News.published.filter(category__name="Mahalliy").order_by("-publish_time")[:1]
+    local_news = News.published.all().filter(category__name="Mahalliy").order_by("-publish_time")[1:6]
+
+    context = {
+        'news_list' : news_list,
+        "categories" : categories,
+        "local_one" : local_one,
+        "local_news" : local_news,
+    }
+
+    return render(request, 'news/home.html', context)
 
 
 class HomePageView(ListView):
@@ -140,19 +144,19 @@ class SportNewsView(ListView):
         return news
 
 
-class NewsUpdateView(UpdateView):
+class NewsUpdateView(OnlyLoggedSuperUser, UpdateView):
      model = News
      fields = ('title', 'body', 'image', 'category', 'status',)
      template_name = 'crud/news_edit.html'
 
 
-class NewsDeleteView(DeleteView):
+class NewsDeleteView(OnlyLoggedSuperUser, DeleteView):
     model = News
     template_name = 'crud/news_delete.html'
     success_url = reverse_lazy('home_page')
 
 
-class NewsCreateView(CreateView):
+class NewsCreateView(OnlyLoggedSuperUser, CreateView):
     model = News
     template_name = 'crud/news_create.html'
     fields = ('title', 'slug', 'body', 'image', 'category', 'status')
