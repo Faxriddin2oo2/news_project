@@ -5,26 +5,14 @@
 
 {% block content %}
 
-<!--    {% for news in xorij_yangiliklari %}-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-6">-->
-<!--                    <a href="{{ news.get_absolute_url }}">-->
-<!--                        <img src="{{ news.image.url}}" alt="{{ news.title }}" style="width:150%">-->
-<!--                        <h2 style="width:150%; margin-bottom: 40px">{{news.title}}</h2>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    {% endfor %}-->
 
 <div class="container">
     <div class="row">
         {% for news in xorij_yangiliklari %}
         <div class="col-xs-6">
             <a href="{{ news.get_absolute_url }}">
-                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-responsive" style="margin-bottom: 20px;">
-                <h3 class="text-center font-weight-bold">{{ news.title }}</h3>
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-responsive img-thumbnail"  style="margin-bottom: 0; width: 555px; height: 360px;">
+                <h3 class="text-center font-weight-bold" style="margin-bottom: 40px;" >{{ news.title }}</h3>
             </a>
         </div>
         {% if forloop.counter|divisibleby:2 %}

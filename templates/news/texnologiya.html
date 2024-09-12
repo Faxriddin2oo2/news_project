@@ -23,8 +23,8 @@
         {% for news in texnologik_yangiliklar %}
         <div class="col-xs-6">
             <a href="{{ news.get_absolute_url }}">
-                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-responsive" style="margin-bottom: 20px;">
-                <h3 class="text-center font-weight-bold">{{ news.title }}</h3>
+                <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-responsive img-thumbnail"  style="margin-bottom: 0; width: 555px; height: 360px;">
+                <h3 class="text-center font-weight-bold" style="margin-bottom: 40px;" >{{ news.title }}</h3>
             </a>
         </div>
         {% if forloop.counter|divisibleby:2 %}
