@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView, DetailView
 from news_project.custom_permissions import OnlyLoggedSuperUser
 
 from .forms import ContactForm, CommentForm
@@ -45,6 +45,37 @@ def news_detail(request, news):
     }
 
     return render(request, 'news/news_detail.html', context)
+
+
+
+class NewsDetailView(DetailView):
+    model = News
+    template_name = 'news/news_detail.html'
+    context_object_name = 'news'
+    form_class = CommentForm  # Optional, for convenience
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)  # Get default context
+        news = self.get_object()  # Retrieve the news object
+
+        # Filter comments for the current news and active ones
+        context['comments'] = news.comments.filter(active=True)
+
+        # Handle comment form logic within the view
+        new_comment = None
+        comment_form = self.form_class or CommentForm()  # Use form_class if defined
+        if self.request.method == 'POST':
+            comment_form = comment_form(data=self.request.POST)
+            if comment_form.is_valid():
+                new_comment = comment_form.save(commit=False)
+                new_comment.news = news
+                new_comment.user = self.request.user  # Assuming user is authenticated
+                new_comment.save()
+                comment_form = CommentForm()  # Reset form after successful save
+
+        context['new_comment'] = new_comment
+        context['comment_form'] = comment_form
+        return context
 
 @login_required
 def homePageView(request):
