@@ -66,6 +66,11 @@
           <li><a href="{% url 'technology_news_page'%}">Texnologiya</a></li>
           <li><a href="{% url 'sport_news_page'%}">Sport</a></li>
           <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
+          <li>
+            <form method="get" action="{% url 'search_results' %}">
+              <input type="search" name="q" placeholder="Qidiruv..." class="form-control">
+            </form>
+          </li>
         </ul>
       </div>
     </nav>
