@@ -1,5 +1,6 @@
 {% extends 'news/base.html' %}
 {% load static%}
+{% load hitcount_tags %}
 
 {% block title %} Xorij xabarlari {% endblock title %}
 
@@ -12,6 +13,7 @@
         <div class="col-xs-6">
             <a href="{{ news.get_absolute_url }}">
                 <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-responsive img-thumbnail"  style="margin-bottom: 0; width: 555px; height: 360px;">
+                <p>Korilganlar soni: <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
                 <h3 class="text-center font-weight-bold" style="margin-bottom: 40px;" >{{ news.title }}</h3>
             </a>
         </div>
