@@ -36,7 +36,6 @@ class News(models.Model):
                               choices=Status.choices,
                               default=Status.Draft
                               )
-
     objects = models.Manager() #default manager
     published = PublishedManager()
 
