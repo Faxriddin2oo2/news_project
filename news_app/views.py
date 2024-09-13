@@ -5,8 +5,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
-from hitcount.models import HitCountMixin
 from hitcount.utils import get_hitcount_model
+from hitcount.views import HitCountMixin
 from news_project.custom_permissions import OnlyLoggedSuperUser
 
 from .forms import ContactForm, CommentForm

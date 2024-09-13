@@ -1,6 +1,6 @@
 {% extends 'news/base.html' %}
-
 {% load static %}
+{% load hitcount_tags %}
 
 {% block title %} {{news.title }} {% endblock title %}
 
@@ -8,7 +8,7 @@
     <div class="container" style="width:100%">
     <h2 style="width:100%">{{ news.title }}</h2>
     <h5 class="datetime">{{news.publish_time}}|
-        <span>Ko'rilganlar soni: {{ news.view_count }}</span>
+        <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}
     </h5>
     <img src="{{ news.image.url }}" style="width:50%">
     <p style="width:100%">{{ news.body }}</p>
