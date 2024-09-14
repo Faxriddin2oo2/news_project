@@ -301,7 +301,9 @@
             <ul>
               <li><a href="#">Blog</a></li>
               <li><a href="#">Rss Feed</a></li>
-              <li><a href="#">Login</a></li>
+              {% if not user.is_authenticated %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+              {% endif %}
               <li><a href="#">Life &amp; Style</a></li>
             </ul>
           </div>

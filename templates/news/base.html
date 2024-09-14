@@ -84,7 +84,7 @@
         <div class="latest_newsarea"> <span>Latest News</span>
           <ul id="ticker01" class="news_sticker">
               {% for news in latest_news %}
-            <li><a href="#"><img src="{{news.image.url}}" alt="">{{ news.title }}</a></li>
+            <li><a href="{% url 'news_detail_page' news.slug %}"><img src="{{news.image.url}}" alt="">{{ news.title }}</a></li>
               {% endfor %}
           </ul>
           <div class="social_area">
