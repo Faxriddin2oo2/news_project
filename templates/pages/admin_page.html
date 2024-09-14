@@ -23,44 +23,29 @@
         <a href="{% url 'news_create' %}" class="text-primary">
             +Yangilik qo'shish
         </a>
+        | <a href="{% url 'comments_page' %}" class="text-primary">Izohlar</a>
+
     </h2>
 
-<!--        <select class="catgArchive" style="width=30%">-->
-<!--          <option>Izohlarni ko'rsatish</option>-->
-<!--          <option>Ha</option>-->
-<!--          <option>Yo'q</option>-->
-<!--        </select>-->
-<!--<h3>Izohlar</h3>-->
-<!--{% for comments in comments_list %}-->
-<!--<p>{{comments.body}}</p>-->
-<!--{%endfor%}-->
-<!--<h3>Izohlar</h3>-->
+
+<!--<h3>Izohlar (Comments)</h3>-->
 <!--{% if comments_list %}-->
 <!--    {% for comment in comments_list %}-->
-<!--        <p>{{ comment.body }}</p>  &lt;!&ndash; Display the comment body &ndash;&gt;-->
+<!--        <p><strong>{{ comment.user.username }}</strong> commented on <strong>{{ comment.news.title }}</strong>:</p>-->
+<!--        <p>{{ comment.body }}</p> <p>{{comment.created_time}}</p>-->
+<!--        <form method="post" action="{% url 'toggle_comment_status' comment.id %}">-->
+<!--            {% csrf_token %}-->
+<!--            {% if comment.active %}-->
+<!--                <button type="submit" class="btn btn-warning">Deactivate</button>-->
+<!--            {% else %}-->
+<!--                <button type="submit" class="btn btn-success">Activate</button>-->
+<!--            {% endif %}-->
+<!--        </form>-->
+<!--        <hr>-->
 <!--    {% endfor %}-->
 <!--{% else %}-->
 <!--    <p>No comments available.</p>  &lt;!&ndash; Message if no comments exist &ndash;&gt;-->
 <!--{% endif %}-->
-
-<h3>Izohlar (Comments)</h3>
-{% if comments_list %}
-    {% for comment in comments_list %}
-        <p><strong>{{ comment.user.username }}</strong> commented on <strong>{{ comment.news.title }}</strong>:</p>
-        <p>{{ comment.body }}</p> <p>{{comment.created_time}}</p>
-        <form method="post" action="{% url 'toggle_comment_status' comment.id %}">
-            {% csrf_token %}
-            {% if comment.active %}
-                <button type="submit" class="btn btn-warning">Deactivate</button>
-            {% else %}
-                <button type="submit" class="btn btn-success">Activate</button>
-            {% endif %}
-        </form>
-        <hr>
-    {% endfor %}
-{% else %}
-    <p>No comments available.</p>  <!-- Message if no comments exist -->
-{% endif %}
 
 
 {% endblock content %}

@@ -213,6 +213,14 @@ def admin_page_view(request):
     }
     return render(request, 'pages/admin_page.html', context)
 
+def comment_page_view(request):
+    comments_list = Comment.objects.all()
+
+    context={
+        "comments_list":comments_list
+    }
+
+    return render(request, 'pages/comments_page.html', context)
 
 def toggle_comment_status(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -220,7 +228,7 @@ def toggle_comment_status(request, comment_id):
     comment.active = not comment.active
     comment.save()
 
-    return redirect(reverse('admin_page'))
+    return redirect(reverse('comments_page'))
 
 
 class SearchResultList(ListView):
