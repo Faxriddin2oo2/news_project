@@ -27,7 +27,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['user', 'body', 'created_time', 'active']
     list_filter = ['active', 'created_time']
     search_fields = ['user', 'body']
-    actions = ['disable_comments, activate_comments']
+    actions = ['disable_comments', 'activate_comments']
 
     def disable_comments(self, request, queryset):
         queryset.update(active=False)

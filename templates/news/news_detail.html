@@ -7,14 +7,15 @@
 {% block content %}
     <div class="container" style="width:100%">
     <h2 style="width:100%">{{ news.title }}</h2>
-    <h5 class="datetime">{{news.publish_time}}|
-        <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}
+    <h5 class="datetime">{{news.publish_time}}| <i class="fa fa-eye" aria-hidden="true"></i>
+        {% get_hit_count for news %} | Izohlar soni : {{ comment_count }}
     </h5>
     <img src="{{ news.image.url }}" style="width:50%">
     <p style="width:100%">{{ news.body }}</p>
     </div>
-
-
+{% if comment_count %}
+<h3>Bu yangilikka {{ comment_count }} ta izoh qoldirilgan</h3>
+{% endif %}
 {% for comment in comments %}
     <div class="comments" style="padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
         <p class="font-weight-bold">
