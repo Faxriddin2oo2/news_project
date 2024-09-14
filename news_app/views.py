@@ -213,6 +213,8 @@ def admin_page_view(request):
     }
     return render(request, 'pages/admin_page.html', context)
 
+@login_required
+@user_passes_test(lambda u:u.is_superuser)
 def comment_page_view(request):
     comments_list = Comment.objects.all()
 

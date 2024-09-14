@@ -4,23 +4,25 @@
 {% block title %} Adming sahifasi {% endblock title%}
 
 {% block content%}
-<h3>Izohlar (Comments)</h3>
-{% if comments_list %}
-    {% for comment in comments_list %}
-        <p><strong>{{ comment.user.username }}</strong> commented on <strong>{{ comment.news.title }}</strong>:</p>
-        <p>{{ comment.body }}</p> <p>{{comment.created_time}}</p>
-        <form method="post" action="{% url 'toggle_comment_status' comment.id %}">
-            {% csrf_token %}
-            {% if comment.active %}
-                <button type="submit" class="btn btn-warning">Deactivate</button>
-            {% else %}
-                <button type="submit" class="btn btn-success">Activate</button>
-            {% endif %}
-        </form>
-        <hr>
-    {% endfor %}
-{% else %}
-    <p>No comments available.</p>  <!-- Message if no comments exist -->
-{% endif %}
+  <h3>Izohlar</h3>
+  {% if comments_list %}
+      {% for comment in comments_list %}
+      <div class="comments" style="padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+          <p><strong>{{ comment.user.username }}</strong> commented on <strong>{{ comment.news.title }}</strong>:</p>
+          <p>{{ comment.body }}</p> <p>{{comment.created_time}}</p>
+          <form method="post" action="{% url 'toggle_comment_status' comment.id %}">
+              {% csrf_token %}
+              {% if comment.active %}
+                  <button type="submit" class="btn btn-warning">Deactivate</button>
+              {% else %}
+                  <button type="submit" class="btn btn-success">Activate</button>
+              {% endif %}
+          </form>
+          <hr>
+      </div>
+      {% endfor %}
+  {% else %}
+      <p>No comments available.</p>  <!-- Message if no comments exist -->
+  {% endif %}
 {% endblock content%}
 
