@@ -2,15 +2,15 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountMixin
 from news_project.custom_permissions import OnlyLoggedSuperUser
 
 from .forms import ContactForm, CommentForm
-from .models import News, Category
+from .models import News, Category, Comment
 
 
 def news_list(request):
@@ -205,11 +205,22 @@ class NewsCreateView(OnlyLoggedSuperUser, CreateView):
 @user_passes_test(lambda u:u.is_superuser)
 def admin_page_view(request):
     admin_users = User.objects.filter(is_superuser=True)
+    comments_list = Comment.objects.all()
 
     context = {
-        "admin_users" : admin_users
+        "admin_users" : admin_users,
+        "comments_list": comments_list
     }
     return render(request, 'pages/admin_page.html', context)
+
+
+def toggle_comment_status(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    comment.active = not comment.active
+    comment.save()
+
+    return redirect(reverse('admin_page'))
 
 
 class SearchResultList(ListView):
