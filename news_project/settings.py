@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news_app',
     'hitcount',
+    'modeltranslation',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,8 @@ LANGUAGES = [
     ('en', _("English")),
     ('ru', _("Russian")),
 ]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
 
 # Static files (CSS, JavaScript, Images)

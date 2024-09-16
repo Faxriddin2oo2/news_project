@@ -27,6 +27,12 @@
         <p>{{ comment.body | linebreaks }}</p>
     </div>
 {% endfor %}
+<div class="card-footer text-center">
+
+    <a href="{% url 'news_update' news.slug %}">Tahrirlash</a> |
+    <a href="{% url 'news_delete' news.slug %}">O'chirish</a>
+
+</div>
 
 {% if user.is_authenticated %}
 <div class="col-md-8 card mb-4 mt-3" style="box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); border-radius: 5px;">
@@ -44,6 +50,7 @@
     </div>
 </div>
 {% else %}
+
 <div class="card-body" style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
     <p class="text-danger">Faqatgina ro'yhatdan o'tgan foydalanuvchilar izoh qoldirishi mumkin</p>
     <p>Izoh qoldirish uchun
