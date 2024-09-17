@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-16 21:33+0500\n"
+"POT-Creation-Date: 2024-09-17 16:29+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,64 +16,88 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: .\news_project\settings.py:125
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\news_project\settings.py:123
 msgid "Uzbek"
 msgstr ""
 
-#: .\news_project\settings.py:126
+#: .\news_project\settings.py:124
 msgid "English"
 msgstr ""
 
-#: .\news_project\settings.py:127
+#: .\news_project\settings.py:125
 msgid "Russian"
 msgstr ""
 
-#: .\templates\news\home.html:7
+#: .\templates\news\home.html:8
 msgid " Bosh sahifa "
 msgstr "Главная страница"
 
-#: .\templates\news\home.html:26
+#: .\templates\news\home.html:27
 msgid " So'nggi yangiliklar "
 msgstr "Последние новости"
 
-#: .\templates\news\home.html:34 .\templates\news\home.html:74
-#: .\templates\news\home.html:94 .\templates\news\home.html:125
-#: .\templates\news\home.html:137 .\templates\news\home.html:192
-#: .\templates\news\home.html:206
+#: .\templates\news\home.html:35 .\templates\news\home.html:61
+#: .\templates\news\home.html:75 .\templates\news\home.html:95
+#: .\templates\news\home.html:107 .\templates\news\home.html:126
+#: .\templates\news\home.html:138 .\templates\news\home.html:193
+#: .\templates\news\home.html:207 .\templates\news\mahalliy.html:32
+#: .\templates\news\sport.html:31 .\templates\news\texnologiya.html:30
+#: .\templates\news\xorij.html:18
 msgid " Korilganlar soni: "
 msgstr "Количество просмотров:"
 
-#: .\templates\news\home.html:51
+#: .\templates\news\home.html:52
 msgid " Mahalliy "
 msgstr "Местные новости"
 
-#: .\templates\news\home.html:86
+#: .\templates\news\home.html:87
 msgid " Xorij "
 msgstr "Зарубежные новости"
 
-#: .\templates\news\home.html:117
+#: .\templates\news\home.html:118
 msgid " Texnologiya "
 msgstr "Технология"
 
-#: .\templates\news\home.html:183
+#: .\templates\news\home.html:184
 msgid " Sport "
 msgstr "Спорт"
 
-#: .\templates\news\home.html:220
+#: .\templates\news\home.html:221
 msgid " Ommabop "
 msgstr "Популярные"
 
-#: .\templates\news\home.html:293
+#: .\templates\news\home.html:294
 msgid " Barcha kategoriyalar "
 msgstr "Все категории"
 
-#: .\templates\news\home.html:295
+#: .\templates\news\home.html:296
 msgid " Kategoriyani tanlang "
 msgstr "Выберите категорию"
 
-#: .\templates\news\home.html:302
+#: .\templates\news\home.html:303
 msgid " Ilovar "
 msgstr "Ссылки"
+
+#: .\templates\news\mahalliy.html:6
+#, fuzzy
+#| msgid " Mahalliy "
+msgid " Mahalliy xabarlar "
+msgstr "Местные новости"
+
+#: .\templates\news\sport.html:7
+msgid "Sport xabarlari "
+msgstr "Новости спорта"
+
+#: .\templates\news\texnologiya.html:6
+#, fuzzy
+#| msgid " Texnologiya "
+msgid "Texnologiya xabarlari "
+msgstr "Технология"
+
+#: .\templates\news\xorij.html:6
+msgid " Xorij xabarlari "
+msgstr "Зарубежные новости"
