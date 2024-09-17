@@ -22,15 +22,15 @@ msgstr ""
 
 #: .\news_project\settings.py:123
 msgid "Uzbek"
-msgstr ""
+msgstr "Узбекский"
 
 #: .\news_project\settings.py:124
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: .\news_project\settings.py:125
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: .\templates\news\home.html:8
 msgid " Bosh sahifa "

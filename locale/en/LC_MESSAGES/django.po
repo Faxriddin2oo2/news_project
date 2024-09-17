@@ -20,15 +20,15 @@ msgstr ""
 
 #: .\news_project\settings.py:123
 msgid "Uzbek"
-msgstr ""
+msgstr "Uzbek"
 
 #: .\news_project\settings.py:124
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: .\news_project\settings.py:125
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 #: .\templates\news\home.html:8
 msgid " Bosh sahifa "
@@ -46,7 +46,7 @@ msgstr "Latest news"
 #: .\templates\news\sport.html:31 .\templates\news\texnologiya.html:30
 #: .\templates\news\xorij.html:18
 msgid " Korilganlar soni: "
-msgstr "Views count"
+msgstr "Views count:"
 
 #: .\templates\news\home.html:52
 msgid " Mahalliy "
