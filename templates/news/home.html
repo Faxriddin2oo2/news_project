@@ -32,7 +32,7 @@
               <li>
                 <div class="media"> <a href="{{news.get_absolute_url}}" class="media-left"> <img alt="" src="{{news.image.url}}"> </a>
                   <div class="media-body"> <a href="{{news.get_absolute_url}}" class="catg_title">{{ news.title }}</a>
-                  <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
+                  <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
                   </div>
                 </div>
               </li>
@@ -58,7 +58,7 @@
                   <figure class="bsbig_fig"> <a href="{{mahalliy.get_absolute_url}}" class="featured_img"> <img alt="" src="{{mahalliy.image.url}}"> <span class="overlay"></span>
                     <figcaption> <a href="{{mahalliy.get_absolute_url}}">{{mahalliy.title}}</a> </figcaption>
                     <p>{{mahalliy.title | truncatewords:10}}</p></a>
-                    <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %}</p>
+                    <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %}</p>
                   </figure>
                 </li>
                     {% endif %}
@@ -72,7 +72,7 @@
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{mahalliy.get_absolute_url}}" class="media-left"> <img alt="" src="{{mahalliy.image.url}}"> </a>
                     <div class="media-body"> <a href="{{mahalliy.get_absolute_url}}" class="catg_title"> {{mahalliy.title}}</a>
-                      <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %}</p>
+                      <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %}</p>
                     </div>
                   </div>
                 </li>
@@ -92,7 +92,7 @@
                     <figure class="bsbig_fig"> <a href="{{xorij.get_absolute_url}}" class="featured_img"> <img alt="" src="{{ xorij.image.url }}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="{{xorij.get_absolute_url}}">{{xorij.title}}</a></figcaption>
                       <p>{{ xorij.body | truncatewords:10}}</p>
-                      <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %}</p>
+                      <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %}</p>
                     </figure>
                   </li>
                         {% endif %}
@@ -104,7 +104,7 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{xorij.get_absolute_url}}" class="media-left"> <img alt="" src="{{ xorij.image.url }}"> </a>
                       <div class="media-body"> <a href="{{xorij.get_absolute_url}}" class="catg_title"> {{ xorij.title }}</a>
-                      <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %}</p>
+                      <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %}</p>
                       </div>
                     </div>
                   </li>
@@ -123,7 +123,7 @@
                     <figure class="bsbig_fig wow fadeInDown"> <a href="{{texnologiya.get_absolute_url}}" class="featured_img"> <img alt="" src="{{texnologiya.image.url}}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="{{texnologiya.get_absolute_url}}">{{texnologiya.title}}</a></figcaption>
                       <p>{{texnologiya.body | truncatewords:10}}</p>
-                      <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnologiya %}</p>
+                      <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnologiya %}</p>
                     </figure>
                   </li>
                     {% endif %}
@@ -135,7 +135,7 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{texnologiya.get_absolute_url}}" class="media-left"> <img alt="" src="{{texnologiya.image.url}}"> </a>
                       <div class="media-body"> <a href="{{texnologiya.get_absolute_url}}"> {{texnologiya.title}}</a>
-                      <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnologiya %}</p>
+                      <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnologiya %}</p>
                       </div>
                     </div>
                   </li>
@@ -190,7 +190,7 @@
                   <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{sport.get_absolute_url}}"> <img src="{{sport.image.url}}" alt=""> <span class="overlay"></span> </a>
                     <figcaption> <a href="{{sport.get_absolute_url}}">{{sport.title}}</a></figcaption>
                     <p>{{sport.body | truncatewords:10}}</p>
-                    <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for sport %}</p>
+                    <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for sport %}</p>
                   </figure>
                 </li>
                 {% endif %}
@@ -204,7 +204,7 @@
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{sport.get_absolute_url}}" class="media-left"> <img alt="" src="{{sport.image.url}}"> </a>
                     <div class="media-body"> <a href="{{sport.get_absolute_url}}" class="catg_title">{{sport.title}}</a>
-                      <p>{% blocktrans %} Korilganlar soni: {% endblocktrans %}<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for sport %}</p>
+                      <p>{% blocktrans %} Korilganlar soni{% endblocktrans %}:<i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for sport %}</p>
                     </div>
                   </div>
                 </li>

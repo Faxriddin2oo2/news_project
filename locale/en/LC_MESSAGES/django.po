@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-17 16:28+0500\n"
+"POT-Creation-Date: 2024-09-18 16:04+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,11 +42,9 @@ msgstr "Latest news"
 #: .\templates\news\home.html:75 .\templates\news\home.html:95
 #: .\templates\news\home.html:107 .\templates\news\home.html:126
 #: .\templates\news\home.html:138 .\templates\news\home.html:193
-#: .\templates\news\home.html:207 .\templates\news\mahalliy.html:32
-#: .\templates\news\sport.html:31 .\templates\news\texnologiya.html:30
-#: .\templates\news\xorij.html:18
-msgid " Korilganlar soni: "
-msgstr "Views count:"
+#: .\templates\news\home.html:207
+msgid " Korilganlar soni"
+msgstr "Views count"
 
 #: .\templates\news\home.html:52
 msgid " Mahalliy "
@@ -80,22 +78,69 @@ msgstr "Choose the category"
 msgid " Ilovar "
 msgstr "Links"
 
-#: .\templates\news\mahalliy.html:6
+#: .\templates\news\mahalliy.html:8
 #, fuzzy
 #| msgid " Mahalliy "
 msgid " Mahalliy xabarlar "
 msgstr "Local news"
 
+#: .\templates\news\mahalliy.html:34 .\templates\news\sport.html:31
+#: .\templates\news\texnologiya.html:31 .\templates\news\xorij.html:20
+#, fuzzy
+#| msgid " Korilganlar soni"
+msgid " Korilganlar soni: "
+msgstr "Views count"
+
+#: .\templates\news\news_detail.html:13
+#, fuzzy
+#| msgid " Korilganlar soni"
+msgid " Izohlar soni"
+msgstr "Views count"
+
+#: .\templates\news\news_detail.html:19
+#, fuzzy, python-format
+#| msgid "Bu yangilikka {{comment_count}} ta izoh qoldirilgan "
+msgid "Bu yangilikka {{comment_count}} ta izoh qoldirilgan "
+msgstr "{{comment_count}} comments left on this news"
+
+#: .\templates\news\news_detail.html:34
+msgid " Tahrirlash "
+msgstr "Edit"
+
+#: .\templates\news\news_detail.html:35
+msgid " O'chirish "
+msgstr "Delete"
+
+#: .\templates\news\news_detail.html:49
+msgid " Yuborish "
+msgstr "Send"
+
+#: .\templates\news\news_detail.html:57
+msgid " Faqatgina ro'yhatdan o'tgan foydalanuvchilar izoh qoldirishi mumkin "
+msgstr "Only registered users can leave comments"
+
+#: .\templates\news\news_detail.html:58
+msgid " Izoh qoldirish uchun "
+msgstr "To leave a comment"
+
+#: .\templates\news\news_detail.html:59
+msgid "ro'yhatdan o'ting"
+msgstr ""
+
+#: .\templates\news\news_detail.html:60
+msgid " Saytga kiring "
+msgstr "register"
+
 #: .\templates\news\sport.html:7
 msgid "Sport xabarlari "
 msgstr "Sport news"
 
-#: .\templates\news\texnologiya.html:6
+#: .\templates\news\texnologiya.html:7
 #, fuzzy
 #| msgid " Texnologiya "
 msgid "Texnologiya xabarlari "
 msgstr "Technology news"
 
-#: .\templates\news\xorij.html:6
+#: .\templates\news\xorij.html:8
 msgid " Xorij xabarlari "
 msgstr "World news"

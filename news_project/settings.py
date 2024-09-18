@@ -127,6 +127,11 @@ LANGUAGES = [
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    'default': ('uz', 'en', 'ru'),
+}
+
+
 LOCALE_PATHS = BASE_DIR, 'locale'
 
 

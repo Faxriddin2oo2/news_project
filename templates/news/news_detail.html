@@ -1,6 +1,8 @@
 {% extends 'news/base.html' %}
 {% load static %}
 {% load hitcount_tags %}
+{% load i18n %}
+
 
 {% block title %} {{news.title }} {% endblock title %}
 
@@ -8,13 +10,13 @@
     <div class="container" style="width:100%">
     <h2 style="width:100%">{{ news.title }}</h2>
     <h5 class="datetime">{{news.publish_time}}| <i class="fa fa-eye" aria-hidden="true"></i>
-        {% get_hit_count for news %} | Izohlar soni : {{ comment_count }}
+        {% get_hit_count for news %} | {% blocktrans %} Izohlar soni{% endblocktrans %}: {{ comment_count }}
     </h5>
     <img src="{{ news.image.url }}" style="width:50%">
     <p style="width:100%">{{ news.body }}</p>
     </div>
 {% if comment_count %}
-<h3>Bu yangilikka {{ comment_count }} ta izoh qoldirilgan</h3>
+<h3>{% blocktrans %}Bu yangilikka {{ comment_count }} ta izoh qoldirilgan {% endblocktrans %}</h3>
 {% endif %}
 {% for comment in comments %}
     <div class="comments" style="padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
@@ -29,8 +31,8 @@
 {% endfor %}
 <div class="card-footer text-center">
 
-    <a href="{% url 'news_update' news.slug %}">Tahrirlash</a> |
-    <a href="{% url 'news_delete' news.slug %}">O'chirish</a>
+    <a href="{% url 'news_update' news.slug %}">{% blocktrans %} Tahrirlash {% endblocktrans %}</a> |
+    <a href="{% url 'news_delete' news.slug %}">{% blocktrans %} O'chirish {% endblocktrans %}</a>
 
 </div>
 
@@ -44,7 +46,7 @@
                 {{ comment_form.as_p }}
             </div>
             <button type="submit" class="btn btn-primary btn-lg">
-                Yuborish
+                {% blocktrans %} Yuborish {% endblocktrans %}
             </button>
         </form>
     </div>
@@ -52,10 +54,10 @@
 {% else %}
 
 <div class="card-body" style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    <p class="text-danger">Faqatgina ro'yhatdan o'tgan foydalanuvchilar izoh qoldirishi mumkin</p>
-    <p>Izoh qoldirish uchun
-        <a href="{% url 'user_register' %}" class="text-primary">ro'yhatdan o'ting</a>
-        yoki <a href="{% url 'login'%}" class="text-primary">Saytga kiring</a>
+    <p class="text-danger">{% blocktrans %} Faqatgina ro'yhatdan o'tgan foydalanuvchilar izoh qoldirishi mumkin {% endblocktrans %}</p>
+    <p>{% blocktrans %} Izoh qoldirish uchun {% endblocktrans %}
+        <a href="{% url 'user_register' %}" class="text-primary">{% blocktrans %}ro'yhatdan o'ting{% endblocktrans %}</a>
+        yoki <a href="{% url 'login'%}" class="text-primary">{% blocktrans %} Saytga kiring {% endblocktrans %}</a>
     </p>
 </div>
 {% endif %}
