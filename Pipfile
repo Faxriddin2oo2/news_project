@@ -9,6 +9,8 @@ pillow = "*"
 django-hitcount = "*"
 django-modeltranslation = "*"
 python-gettext = "*"
+python-decouple = "*"
+whitenoise = "*"
 
 [dev-packages]
 
