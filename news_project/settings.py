@@ -1,7 +1,4 @@
-from email.policy import default
 from pathlib import Path
-from decouple import config
-from django.conf.global_settings import STATIC_ROOT, STATICFILES_DIRS, MEDIA_ROOT
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,14 +8,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-
+# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-o!8hzfem0+c3bmjl_-3x70%8opu7%3#phm^&93agn-g16voh*&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+# DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
-ALLOWED_HOSTS = ["django-faxriddin-demo.uz", "www.django-faxriddin-demo.uz", "127.0.0.1"]
-
+# ALLOWED_HOSTS = ["django-faxriddin-demo.uz", "www.django-faxriddin-demo.uz", "127.0.0.1"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -131,21 +129,21 @@ LOCALE_PATHS = BASE_DIR, 'locale'
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = '/home/djangomo/django-faxriddin-demo.uz/django/staticfiles'
-STATICFILES_DIRS = ('/home/djangomo/django-faxriddin-demo.uz/django/static',)
+# STATIC_ROOT = '/home/djangomo/django-faxriddin-demo.uz/django/staticfiles'
+# STATICFILES_DIRS = ('/home/djangomo/django-faxriddin-demo.uz/django/static',)
 
 #local
-# STATICFILES_DIRS = [BASE_DIR / 'static'] #debug  = True
-# STATIC_ROOT = BASE_DIR / 'staticfiles' #debug  = False
+STATICFILES_DIRS = [BASE_DIR / 'static'] #debug  = True
+STATIC_ROOT = BASE_DIR / 'staticfiles' #debug  = False
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/home/djangomo/django-faxriddin-demo.uz/django/media'
+# MEDIA_ROOT = '/home/djangomo/django-faxriddin-demo.uz/django/media'
 #local
-# MEDIA_ROOT = BASE_DIR / 'media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
