@@ -133,7 +133,7 @@ STATIC_URL = 'static/'
 # STATICFILES_DIRS = ('/home/djangomo/django-faxriddin-demo.uz/django/static',)
 
 #local
-STATICFILES_DIRS = [BASE_DIR / 'static'] #debug  = True
+STATICFILES_DIRS = [BASE_DIR / 'static'] #debug  = Truedaj
 STATIC_ROOT = BASE_DIR / 'staticfiles' #debug  = False
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
